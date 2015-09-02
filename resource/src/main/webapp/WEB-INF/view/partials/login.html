@@ -1,0 +1,23 @@
+<div id="login" ng-show="isSuccess" ng-controller="homeController">
+ <div class="row col-xs-12 col-sm-4 box1" >
+	<h2>New  Here..! Register Now</h2>
+	<span>Name</span><br>
+	<input type="text" ng-model="user.name"><br>
+	<span>Email Id</span><br>
+	<input type="text" ng-model="user.emailId"><br>
+	<span>Password</span><br>
+	<input type="password" ng-model="user.password"><br>
+	<!-- <button ng-click="partials/profile">Register</button> -->
+	<a href="#profile"><img id="signup" src='img/signup.jpg' ng-click="register()"/></a>
+	</div>
+	<div class="row col-xs-12 col-sm-4 col-sm-offset-1 box1">
+	<h2>Already Member? Sign In</h2>
+		<span>Email Id</span><br>
+	<input type="text" name="user.emailId1"><br>
+	<span>Password</span><br>
+	<input type="password" name="user.password1"><br>
+		<button>Sign In</button>
+	</div>
+</div>
+<!--app -->
+<script type="text/javascript" src="js/app/homeController.js"></script>
