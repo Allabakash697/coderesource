@@ -9,17 +9,18 @@ import java.sql.PreparedStatement;
 import org.springframework.stereotype.Component;
 
 import com.cr.home.Integration.interfaces.IHomeDao;
+import com.cr.home.beans.ResponseMessage;
 import com.cr.home.beans.UserAccount;
 
 @Component
 public class HomeDaoImpl implements IHomeDao {
 
-	String message;
+	ResponseMessage message=new ResponseMessage();;
 
 	Connection conn=null;
 /*	Statement pst=null;
 */	PreparedStatement preparestmt=null;
-	public String saveDetails(UserAccount user) {
+	public ResponseMessage saveDetails(UserAccount user) {
 try{
 		Class.forName("com.mysql.jdbc.Driver");
 		conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/user_db", "root", "root");
@@ -34,13 +35,19 @@ try{
 }catch (Exception e) {
 	e.printStackTrace();
 }
+
+try{
 	if(user.getName()!=null){
-		message="Registration Success";
+		message.setMessage("Registration Success");
+		message.setUserAcc(user);
 		}else
 		{
-			message="Registration Failed";
+			message.setMessage("Registration Failed");
 		}
-		return message;
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+return message;
 	}
 
 }

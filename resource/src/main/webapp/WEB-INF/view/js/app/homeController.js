@@ -1,7 +1,9 @@
 function homeController($scope, $http,$rootScope,$route) {
+	var message;
 	$scope.isSuccess=true;
 	$scope.register = function() {
 		var user=$scope.user;
+		var name=$scope.user.name;
 		$http({
 			url : 'home/register',
 			method:'POST',
@@ -10,13 +12,12 @@ function homeController($scope, $http,$rootScope,$route) {
 			
 		}).success(function(data, status, headers, config) {
 			$scope.isSuccess=false;
-			$rootScope.dummy=data;
+			$rootScope.message=data.message;
+			$rootScope.name=data.userAcc.name;
 			$route.reload();
-			console.log("$scope.dummy",$rootScope.dummy);
+			console.log("$scope.message",$rootScope.message);
 
 		});
 		
 	};
-	$scope.dummy=$rootScope.dummy;
-
 };
