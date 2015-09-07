@@ -35,4 +35,9 @@ public class HomeRestEndPoint {
 		message=homeService.saveDetails(user);
 		return message;
 	}
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public ResponseMessage login(@RequestBody UserAccount user){
+		message=homeService.getDetails(user);
+		return message;
+	}
 }

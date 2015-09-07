@@ -13,10 +13,11 @@
 	<div class="row col-xs-12 col-sm-4 col-sm-offset-1 box1">
 	<h2>Already Member? Sign In</h2>
 		<span>Email Id</span><br>
-	<input type="text" name="user.emailId1"><br>
+	<input type="text" ng-model="user1.emailId"><br>
 	<span>Password</span><br>
-	<input type="password" name="user.password1"><br>
-		<button>Sign In</button>
+	<input type="password" ng-model="user1.password"><br>
+		<!-- <button>Sign In</button> -->
+		<a href="#profile"><img id="signup" src='img/login.jpg' ng-click="login()"/></a>
 	</div>
 </div>
 <!--app -->

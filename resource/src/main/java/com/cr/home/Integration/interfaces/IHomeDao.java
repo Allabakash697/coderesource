@@ -10,4 +10,6 @@ public interface IHomeDao {
 
 	ResponseMessage saveDetails(UserAccount user);
 
+	ResponseMessage getDetails(UserAccount user);
+
 }

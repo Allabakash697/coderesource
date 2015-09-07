@@ -10,4 +10,6 @@ public interface IHomeRepository {
 
 	ResponseMessage saveDetails(UserAccount user);
 
+	ResponseMessage getDetails(UserAccount user);
+
 }

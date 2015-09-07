@@ -10,4 +10,6 @@ public interface IHomeService {
 
 	ResponseMessage saveDetails(UserAccount user);
 
+	ResponseMessage getDetails(UserAccount user);
+
 }

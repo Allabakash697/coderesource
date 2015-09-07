@@ -22,4 +22,9 @@ public class HomeRepositoryImpl implements IHomeRepository{
 		return message;
 	}
 
+	public ResponseMessage getDetails(UserAccount user) {
+
+		message=homeDao.getDetails(user);
+		return message;
+	}
 }

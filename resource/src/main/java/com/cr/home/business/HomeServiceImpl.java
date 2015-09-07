@@ -20,5 +20,8 @@ public class HomeServiceImpl implements IHomeService {
 		message=homeRepository.saveDetails(user);
 		return message;
 	}
-
+	public ResponseMessage getDetails(UserAccount user) {
+		message=homeRepository.getDetails(user);
+		return message;
+	}
 }
