@@ -11,7 +11,7 @@ app.config([ '$routeProvider', function($routeProvider) {
 	.when('/login', {
 		templateUrl : 'partials/login',
 	})
-	.when('/home', {
+	.when('/', {
 		templateUrl : 'partials/login',
 	});
 } ]);

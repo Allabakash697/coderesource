@@ -71,6 +71,9 @@ String userEmail=user.getEmailId();
 String pass=user.getPassword();
 UserAccount userDb=new UserAccount();
 		try{
+			String uname=null;
+			String emailId=null;
+			String password=null;
 			Class.forName("com.mysql.jdbc.Driver");
 			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/user_db", "root", "root");
 			List<SqlParameterSource> paramList = new ArrayList<SqlParameterSource>();
@@ -80,26 +83,23 @@ UserAccount userDb=new UserAccount();
 			
 			ResultSet rs=stmt.executeQuery(query);
 			while(rs.next()){
-				String uname=rs.getString("user_name");
+				 uname=rs.getString("user_name");
 				userDb.setName(uname);
-				String emailId=rs.getString("user_email");
+				 emailId=rs.getString("user_email");
 				userDb.setEmailId(emailId);
-				String password=rs.getString("user_password");
+				 password=rs.getString("user_password");
 				userDb.setPassword(password);
-				if(userEmail!=null){
+			}
 					if(userEmail.equals(emailId) && pass.equals(password)){
 					message.setMessage("Login Success");
 					message.setUserAcc(userDb);
-					}else{
-						message.setMessage("Incorrect Email Id or Password");
 					}
-					}else
-					{
-						message.setMessage(" Login failed ...");
+			else{
+						message.setMessage("Incorrect Email Id or Password ");
+						message.setUserAcc(user);
 					}
-				
-			}
-			rs.close();	
+					rs.close();	
+			
 	}catch (Exception e) {
 		e.printStackTrace();
 	}finally{
@@ -112,6 +112,7 @@ UserAccount userDb=new UserAccount();
 			e.printStackTrace();
 		}
 	}
+
 		return message;
 
 }
