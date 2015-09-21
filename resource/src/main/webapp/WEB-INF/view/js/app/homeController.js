@@ -1,9 +1,30 @@
 function homeController($scope, $http,$rootScope,$route) {
 	var message;
 	var user;
+	var user1=$scope.user1;
 	var name;
 	$scope.isSuccess=true;
 	$scope.loading=true;
+	console.log("loading1",$scope.loading);
+	
+	/*.........................................*/
+	(function() {
+		 $('.emptyCheck > input').keyup(function() {
+			 var empty=false;debugger;
+		$('.emptyCheck > input').each(function(){
+			if($(this).val() == '') {
+				empty = true;debugger;		
+		}
+		});
+		 if (empty) {
+			 $('#botton').attr('disabled', 'disabled');
+		 }else{
+			 $('#botton').removeAttr('disabled');
+		 }
+		 });
+	})()
+	
+	/*.........................................*/
 	$scope.register = function() {
 		 user=$scope.user;
 		$http({
@@ -23,7 +44,7 @@ function homeController($scope, $http,$rootScope,$route) {
 		
 	};
 	var loginCheck=function(){
-		user=$scope.user1;debugger;
+		user1=$scope.user1;debugger;
 /*		if(user.emailId!=null&&user.password!=null){*/
 		$http({
 			url : 'home/login',
@@ -43,8 +64,9 @@ function homeController($scope, $http,$rootScope,$route) {
 			$rootScope.name=data.userAcc.name;
 			$route.reload();
 			console.log("$scope.message",$rootScope.message);
-			},5000);
 			$scope.loading=false;
+			},5000);
+			console.log("loading1",$scope.loading);
 		});
 	
 	/*}else {
@@ -62,30 +84,10 @@ function homeController($scope, $http,$rootScope,$route) {
 		}
 	}*/
 	};
-	
+	console.log("loading2",$scope.loading);
 	$scope.login=function(){
 		user=$scope.user1;debugger;
-		if(user.emailId!=null&&user.emailId!=""&&user.password!=null&&user.password!=""){
 		loginCheck();
-		}else{
-			alert("Enter Required Fields");
-			if(user.emailId==null&&user.password==null){
-				colorMailId();
-				colorPassword();
-			}else if(user.emailId==""&&user.password==""){
-				colorMailId();
-				colorPassword();
-			}else if(user.emailId==null||user.emailId==""){
-				colorMailId();
-			}else if(user.password==null||user.password==""){
-				colorPassword();
-			}
-		}
 	};
-	var colorMailId=function(){
-		document.getElementById("emailId").style.borderColor="red";
-	}
-	var colorPassword=function(){
-		document.getElementById("password").style.borderColor="red";
-	}
+	
 };

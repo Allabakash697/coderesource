@@ -10,18 +10,22 @@
 	<!-- <button ng-click="partials/profile">Register</button> -->
 	<a href="#profile"><img id="signup" src='img/signup.jpg' ng-click="register()"/></a>
 	</div>
-	<div class="row col-xs-12 col-sm-4 col-sm-offset-1 box1">
+	<div class="row col-xs-12 col-sm-4 col-sm-offset-1 box1 emptyCheck">
 	<h2>Already Member? Sign In</h2>
 		<span>Email Id</span><br>
-	<input id= "emailId" type="text" ng-model="user1.emailId"><br>
+	<input id= "emailId" type="text" ng-model="user1.emailId" required><br>
 	<span>Password</span><br>
-	<input id="password" type="password" ng-model="user1.password"><br>
-	<span class="btn btn-primary " ng-click="login()">Login</span>
+	<input id="password" type="password" ng-model="user1.password" required><br>
+	<button id="botton" class="btn btn-primary" ng-click="login()" disabled="disabled">Login</button>
 		<!-- <button>Sign In</button> -->
 <!-- 		<a href="#profile"><img id="signup" src='img/login.jpg' ng-click="login()"/></a>
  -->		<!-- <img id="signup" src='img/login.jpg' ng-click="login()"/> -->
  
 	</div>
 </div>
+
+<script type="text/javascript" src="js/lib/angular.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+
 <!--app -->
 <script type="text/javascript" src="js/app/homeController.js"></script>
