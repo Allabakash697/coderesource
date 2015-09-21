@@ -10,10 +10,10 @@ function homeController($scope, $http,$rootScope,$route) {
 	/*.........................................*/
 	(function() {
 		 $('.emptyCheck > input').keyup(function() {
-			 var empty=false;debugger;
+			 var empty=false;
 		$('.emptyCheck > input').each(function(){
 			if($(this).val() == '') {
-				empty = true;debugger;		
+				empty = true;		
 		}
 		});
 		 if (empty) {
@@ -44,7 +44,7 @@ function homeController($scope, $http,$rootScope,$route) {
 		
 	};
 	var loginCheck=function(){
-		user1=$scope.user1;debugger;
+		user1=$scope.user1;
 /*		if(user.emailId!=null&&user.password!=null){*/
 		$http({
 			url : 'home/login',
@@ -53,7 +53,7 @@ function homeController($scope, $http,$rootScope,$route) {
 			headers:{'Content-Type': 'application/json'}
 			
 		}).success(function(data, status, headers, config) {
-			$scope.isSuccess=false;debugger;
+			$scope.isSuccess=false;
 			window.location.href="#profile";
 			setTimeout(function(){/*{
 				var image=new Image();
@@ -86,7 +86,7 @@ function homeController($scope, $http,$rootScope,$route) {
 	};
 	console.log("loading2",$scope.loading);
 	$scope.login=function(){
-		user=$scope.user1;debugger;
+		user=$scope.user1;
 		loginCheck();
 	};
 	
