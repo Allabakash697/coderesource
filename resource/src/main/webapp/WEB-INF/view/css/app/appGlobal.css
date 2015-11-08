@@ -1,19 +1,26 @@
+#body{
+	background-color:#D6C3C3;
+}
+.mainClass{
+	padding:0 15px 0 15px;
+}
 .Header{
-		border:1px solid #A52A2A;
-		Background-color:#8DA793;
+		border:1px solid #393939;
+		background-color:#617CBF;
+		height: 7em;
 }
 .Header img{
-	height:100px;
+	height:90px;
 	width:130px;
 }
 
-.navigation ul li{
-	display:inline;
-	padding:20px;
+.navigation ul{
+	list-style-type:none;
 }
 
-.box1{
+#box1{
 	border:1px solid #A52A2A;
+	margin:0;
 }
 
 #signup{
@@ -23,4 +30,114 @@
 #botton{
 	height:30px;
 	width:80px;
+}
+table tr th {
+background:#C1A0A0;
+color:#666;
+font-weight:100;
+border-top:1px solid #ddd;
+border-right:1px solid #ddd;
+border-bottom:1px solid #ddd;
+font-size:12px;
+line-height:12px;
+padding:10px;
+}
+
+table tr td {
+color:#666;
+border-right:1px solid #f1f1f1;
+padding-top:10px;
+padding-bottom:10px;
+font-size:12px;
+line-height:18px;
+}
+table {
+border:1px solid #ddd;
+margin-top:15px;
+width:100%;
+float:left;
+}
+
+.navigation li{
+	float:left;
+	display:list-type;
+	background-color:#617CBF;
+	text-align: -webkit-match-parent;
+}
+.navigation a{
+	width:75px;
+	display:block;
+	background-color:#617CBF;
+	border-right: 1px solid #393939;
+}
+
+.navigation li a{
+	color:#D6C3C3;
+	text-decoration:none;
+	padding:3px;
+}
+
+a:hover {
+    background-color: #025296;
+}
+
+.redirectMsg{
+	width: 300px;
+	height: 200px;
+	background-color: #8DA793;
+
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.redirectMsg span{
+	 width: 300px;
+    height: 200px;
+    display: table-cell;
+    vertical-align:middle;
+    text-align:center;
+    color: #FFFFFF;
+}
+
+.sideBar {
+  background: #333;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 12em;
+}
+.sideBar ul{
+	
+    padding-left: 0px;
+	
+}
+.sideBar li {
+  font: 100% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+}
+.sideBar a {
+  background: #617CBF;
+  border-bottom: 1px solid #393939;
+  color: #ccc;
+  display: block;
+  margin: 0;
+  height:5em;
+  padding: 18px 12px;
+  font-weight: normal;
+}
+
+.sideBar li a {
+	text-decoration: none;
+	}
+.sideBar a:hover {
+  background: #025296 left center no-repeat;
+  color: #fff;
+  padding-bottom: 8px;
 }

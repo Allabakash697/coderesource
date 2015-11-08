@@ -5,12 +5,23 @@
 <link rel="stylesheet" type="text/css" href="css/app/appGlobal.css">
 <link rel="stylesheet" type="text/css" href="css/lib/bootstrap.min.css">
 </Head>
-<body ng-app="homeApp">
-	<div class="container">
+<body ng-app="homeApp" id="body">
+	<div class="mainClass">
 		<div ng-include src="'partials/header'"></div>
-<!-- 	<div ng-include src="'partials/login'"></div>
- --> 	<div ng-view></div>
- 	</div>
+ 	<div ng-view></div>
+ 	
+ 	<!-- Testing purpose -->
+ 	<!-- 
+ 	 <div class="container">
+ 	<div ng-include src="'partials/Testing'"></div>
+ 	<div ng-view></div>
+ 	</div>  -->
+ 
+ <!-- <div class="container" ng-controller="homeCtrl">
+ </div> -->
+ <div class="redirectMsg" ng-show="rdtMsg"><span ng-bind="redirectmsg"></span></div>
+</div>
+ 
 </body>
 
 
@@ -22,6 +33,7 @@
 <script type="text/javascript" src="js/lib/angular-route.min.js"></script>
 <script type="text/javascript" src="js/lib/angular-route.js"></script>
 <script type="text/javascript" src="js/lib/angular.js"></script>
+<script type="text/javascript" src="js/lib/angular-cookies.min.js"></script>
 <!--app -->
 <script type="text/javascript" src="js/app/app.js"></script>
 

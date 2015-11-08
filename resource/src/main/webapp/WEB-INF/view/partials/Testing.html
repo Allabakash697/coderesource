@@ -1,0 +1,39 @@
+<div ng-controller="serialController">
+<span>Welcome to serial number generator</span>
+<hr>
+<div >
+<span>Enter 12 digit number to get its next number</span>
+<input type="text" ng-model="numbr">
+<button type="submit" ng-click="getNextNumb()">Get Next Number</button><br>
+<span ng-show="nextNumber">{{numbr}} 's next number is {{nextNumber}}</span>
+</div>
+<hr>
+<div>
+<span>Enter 12 digit number to get its next number</span>
+<input type="text" ng-model="serialNumber.number">
+<span>Number of rows</span>
+<input type="number" ng-model="serialNumber.rows">
+<button type="submit" ng-click="getNextNumbers()">ADD</button>
+<table class="table">
+<tr>
+<th>
+No.
+</th>
+<th>
+Serial Numbers
+</th>
+</tr>
+<tr ng-repeat="numb in numbers">
+<td>
+{{numb.rows}}
+</td>
+<td>
+{{numb.nextNumber}}
+</td>
+</tr>
+</table>
+</div>
+
+</div>
+
+<script type="text/javascript" src="js/app/serial.js"></script>

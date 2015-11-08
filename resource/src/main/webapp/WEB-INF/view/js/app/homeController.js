@@ -1,12 +1,6 @@
-function homeController($scope, $http,$rootScope,$route) {
-	var message;
-	var user;
-	var user1=$scope.user1;
-	var name;
-	$scope.isSuccess=true;
-	$scope.loading=true;
-	console.log("loading1",$scope.loading);
-	
+function homeController($scope, $http,$rootScope,$route,$cookies,$cookieStore) {
+	$rootScope.isSuccess=false;
+	$rootScope.loginError=false;
 	/*.........................................*/
 	(function() {
 		 $('.emptyCheck > input').keyup(function() {
@@ -26,68 +20,92 @@ function homeController($scope, $http,$rootScope,$route) {
 	
 	/*.........................................*/
 	$scope.register = function() {
-		 user=$scope.user;
+		 /*user=$scope.user;*/
 		$http({
 			url : 'home/register',
 			method:'POST',
-			data : user,
+			data : $scope.user,
 			headers:{'Content-Type': 'application/json'}
 			
 		}).success(function(data, status, headers, config) {
-			$scope.isSuccess=false;
+			$rootScope.isSuccess=true;
 			$rootScope.message=data.message;
 			$rootScope.name=data.userAcc.name;
-			$route.reload();
-			console.log("$scope.message",$rootScope.message);
-
+				window.location.href="#profile";
 		});
 		
 	};
-	var loginCheck=function(){
-		user1=$scope.user1;
-/*		if(user.emailId!=null&&user.password!=null){*/
+	
+	$scope.loginCheck=function(){
 		$http({
 			url : 'home/login',
 			method:'POST',
-			data : user,
+			data : $scope.user1,
 			headers:{'Content-Type': 'application/json'}
 			
 		}).success(function(data, status, headers, config) {
-			$scope.isSuccess=false;
-			window.location.href="#profile";
-			setTimeout(function(){/*{
-				var image=new Image();
-				image.src='img/loading.gif';
-			});*/
-				
+			
+			/*window.location.href="#profile";*/
+			if(data.userAcc.name!=null){
+				$rootScope.isSuccess=true;
+				if(data.admin){
+				window.location.href="#usersList";
 			$rootScope.message=data.message;
 			$rootScope.name=data.userAcc.name;
-			$route.reload();
-			console.log("$scope.message",$rootScope.message);
-			$scope.loading=false;
-			},5000);
-			console.log("loading1",$scope.loading);
+			$http({
+				url : 'home/getUserDetails',
+				method:'POST',
+				headers:{'Content-Type': 'application/json'}
+				
+			}).success(function(data, status, headers, config) {
+				$rootScope.userDetail=data;
+			});
+			}else{
+				window.location.href="#profile";
+				$rootScope.message=data.message;
+				$rootScope.name=data.userAcc.name;
+			}
+			}else{
+				$rootScope.loginError=true;
+				$rootScope.messageError=data.message;
+			}
 		});
 	
-	/*}else {
-		alert("Enter Required Fields");
-		if(user.emailId==null&&user.password==null){
-			$scope.user1=null;
-		document.getElementById("emailId").style.borderColor="red";
-		document.getElementById("password").style.borderColor="red";
-		}else if(user.emailId==null){
-			$scope.user1.emailId=null;
-			document.getElementById("emailId").style.borderColor="red";
-		}else{
-			$scope.user1.password=null;
-			document.getElementById("password").style.borderColor="red";
-		}
-	}*/
-	};
-	console.log("loading2",$scope.loading);
-	$scope.login=function(){
-		user=$scope.user1;
-		loginCheck();
 	};
 	
+	$scope.login=function(){
+		user=$scope.user1;
+		$scope.loginCheck();
+	};
+	
+	/*$scope.loginCheck=function(){
+		
+		$http({
+			url : 'home/reload',
+			method:'POST',
+			data : $scope.user1,
+			headers:{'Content-Type': 'application/json'}
+			
+		}).success(function(data, status, headers, config) {
+			console.log("data",status);debugger;
+			console.log("$cookies",$cookies);
+			alert("Suceess");
+		});
+	}*/
+	$scope.routeTo=function(){
+		if($cookies.userCookieModel!=null){
+			$rootScope.$broadcast("checkAdmin");
+		}else{
+			window.location.href="/resource";
+		}
+	}
+	
+	$scope.logOut=function(){
+		/*angular.forEach($cookies, function (v, k) {
+			$cookieStore.remove(k);
+		});*/
+		$rootScope.isSuccess=false;
+		$cookieStore.remove("userCookieModel");
+		window.location.href="/resource";
+	}
 };

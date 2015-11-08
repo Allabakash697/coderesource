@@ -4,7 +4,30 @@ public class UserAccount {
 
 	private String name;
 	private String emailId;
+	private int id;
 	private String password;
+	private String city;
+	private boolean session;
+	
+	public boolean isSession() {
+		return session;
+	}
+	public void setSession(boolean session) {
+		this.session = session;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
 	public String getName() {
 		return name;
 	}

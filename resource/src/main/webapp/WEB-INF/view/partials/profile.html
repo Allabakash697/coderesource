@@ -1,9 +1,15 @@
-<div class="row col-xs-6 col-xs-offset-4">
-<h1>
-<span ng-bind="name"></span></h1>
+<div ng-controller="profileController">
+<div class="row col-xs-6 col-xs-offset-4 profile">
 <span ng-bind="message"></span>
-<div ng-show="loading"><img src='img/loading.gif'></img></div>
-</div>
+<span ng-bind="name"></span></div>
 
-<!--app -->
-<script type="text/javascript" src="js/app/homeController.js"></script>
+<div class="sideBar">
+<ul>
+<li><a href><span>Profile</span></a></li>
+<li><a href><span>Settings</span></a></li>
+<li><a href><span>Tutorials</span></a></li>
+<li><a href><span>Quiz</span></a></li>
+</ul>
+</div>
+</div>
+<script type="text/javascript" src="js/app/profile.js"></script>

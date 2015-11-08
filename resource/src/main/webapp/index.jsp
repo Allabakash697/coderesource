@@ -4,4 +4,4 @@
  -->
 <%--   <% response.sendRedirect("../view/home.html"); %>  --%>
 
-<jsp:forward page="getHome"></jsp:forward>
+<jsp:forward page="/"></jsp:forward>

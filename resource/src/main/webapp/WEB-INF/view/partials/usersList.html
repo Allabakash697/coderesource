@@ -1,0 +1,26 @@
+<div class="row col-xs-6 col-xs-offset-4 profile" ng-controller="profileController">
+<div>
+<span ng-bind="message"></span>
+<span ng-bind="name"></span>
+<div>
+<table class="table">
+<tr>
+<th>No.</th>
+<th>Name</th>
+<th>Email ID</th>
+<th>City</th>
+</tr>
+<tr ng-repeat="user in userDetail">
+<td>{{user.id}}</td>
+<td>{{user.name}}</td>
+<td>{{user.emailId}}</td>
+<td>{{user.city}}</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="redirectMsg" ng-bind="redirectmsg" ng-show="rdtMsg"></div>
+</div>
+
+<!--app -->
+<script type="text/javascript" src="js/app/profile.js"></script>

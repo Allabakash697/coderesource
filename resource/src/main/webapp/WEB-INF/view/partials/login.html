@@ -1,26 +1,26 @@
-<div id="login" ng-show="isSuccess" ng-controller="homeController">
- <div class="row col-xs-12 col-sm-4 box1" >
+<div id="login" ng-controller="homeController">
+ <div class="row col-xs-12 col-sm-4" id="box1">
 	<h2>New  Here..! Register Now</h2>
 	<span>Name</span><br>
 	<input type="text" ng-model="user.name"><br>
+	<span>City</span><br>
+	<input type="text" ng-model="user.city"><br>
 	<span>Email Id</span><br>
 	<input type="text" ng-model="user.emailId"><br>
 	<span>Password</span><br>
 	<input type="password" ng-model="user.password"><br>
 	<!-- <button ng-click="partials/profile">Register</button> -->
-	<a href="#profile"><img id="signup" src='img/signup.jpg' ng-click="register()"/></a>
+	<!-- <a href="#profile"><img id="signup" src='img/signup.jpg' ng-click="register()"/></a> -->
+	<button class="btn btn-primary" ng-click="register()">Register</button>
 	</div>
-	<div class="row col-xs-12 col-sm-4 col-sm-offset-1 box1 emptyCheck">
+	<div class="row col-xs-12 col-sm-4 col-sm-offset-1 emptyCheck" id="box1">
 	<h2>Already Member? Sign In</h2>
 		<span>Email Id</span><br>
 	<input id= "emailId" type="text" ng-model="user1.emailId" required><br>
 	<span>Password</span><br>
 	<input id="password" type="password" ng-model="user1.password" required><br>
 	<button id="botton" class="btn btn-primary" ng-click="login()" disabled="disabled">Login</button>
-		<!-- <button>Sign In</button> -->
-<!-- 		<a href="#profile"><img id="signup" src='img/login.jpg' ng-click="login()"/></a>
- -->		<!-- <img id="signup" src='img/login.jpg' ng-click="login()"/> -->
- 
+	<span ng-show="loginError" ng-bind="messageError" style="color:red"></span>
 	</div>
 </div>
 
